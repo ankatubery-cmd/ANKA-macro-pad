@@ -1,0 +1,8 @@
+{
+  "name": "Remix ANKA Macro Pad",
+  "description": "Özelleştirilebilir Wi-Fi ve USB bilgisayar makro kontrol paneli.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

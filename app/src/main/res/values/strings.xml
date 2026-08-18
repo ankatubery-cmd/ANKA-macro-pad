@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">ANKA Macro Pad</string>
+    <!-- Header -->
+    <string name="support_server_title">Anka Macro Pad Support Server</string>
+    <string name="support_server_desc">Join Anka Macro Pad support server</string>
+    <string name="close">Close</string>
+    <string name="pc_connection_status">PC Connection Status: </string>
+    <string name="reconnect">Reconnect</string>
+    <string name="socket_tcp">Socket TCP</string>
+    <string name="settings">Settings</string>
+
+    <!-- Main Navigation -->
+    <string name="nav_panel">Panel</string>
+    <string name="nav_extensions">Extensions</string>
+    <string name="nav_discord">Discord</string>
+    <string name="nav_pc_code">PC Code</string>
+    <string name="nav_profiles">Profiles</string>
+    <string name="discord_avatar">Discord Avatar</string>
+
+    <!-- Panel -->
+    <string name="select_profile">Select Profile</string>
+    <string name="edit_mode_active">✏️ Edit Mode Active (Tap buttons to edit)</string>
+    <string name="new_button">+ New Button</string>
+
+    <!-- Extensions -->
+    <string name="ext_platform">Extensions Platform</string>
+    <string name="ext_platform_desc">Add dynamic extensions via ZIP / Manifest</string>
+    <string name="menu">Menu</string>
+    <string name="install_ext">Install Extension</string>
+    <string name="ext_added">Extension button added!</string>
+    <string name="widget_added">widget added to main panel!</string>
+    <string name="ext_no_perms">Requires no special permissions.</string>
+    <string name="ok">OK</string>
+    <string name="zip_ext_install">Install ZIP Extension Package</string>
+    <string name="zip_ext_desc">Add extensions with manifest.json without compiling APK</string>
+    <string name="select_zip">Select ZIP</string>
+    <string name="no_ext_installed">No extensions installed yet</string>
+    <string name="no_ext_desc">You can add a new extension package using the \'Select ZIP\' button above.</string>
+    <string name="delete">Delete</string>
+    <string name="create_button">Create Button</string>
+    <string name="create_widget">Create Widget</string>
+    <string name="interface_txt">Interface</string>
+    <string name="permissions">Permissions</string>
+
+    <!-- Discord Profil -->
+    <string name="discord_community">Discord Community</string>
+    <string name="discord_channel">ANKA Discord Extension Channel</string>
+    <string name="discord_desc">All community plugins, official updates, and security-approved extension packages are shared on our Discord server.</string>
+    <string name="open_discord">Open Discord Extension Channel</string>
+    <string name="popular_channels">Popular Discord Channels:</string>
+    <string name="join">Join</string>
+</resources>

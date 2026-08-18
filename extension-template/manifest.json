@@ -1,0 +1,22 @@
+{
+  "id": "example-extension",
+  "name": "ANKA Örnek Uzantı",
+  "version": "1.0.0",
+  "description": "Uzantı sistemi için örnek paket.",
+  "icon": "extension",
+  "entry": "index.html",
+  "developer": "ANKA",
+  "minAnkaVersion": "1.0.0",
+  "permissions": [
+    "notification"
+  ],
+  "actions": [
+    {
+      "id": "hello",
+      "name": "Bildirim Göster",
+      "icon": "notifications",
+      "type": "EXTENSION_ACTION",
+      "value": "notification:hello"
+    }
+  ]
+}

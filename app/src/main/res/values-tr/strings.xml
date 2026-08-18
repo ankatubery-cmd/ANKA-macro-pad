@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">ANKA Macro Pad</string>
+    <!-- Header -->
+    <string name="support_server_title">Anka Macro Pad Destek Sunucusu</string>
+    <string name="support_server_desc">Anka Macro Pad destek sunucusuna katılın</string>
+    <string name="close">Kapat</string>
+    <string name="pc_connection_status">PC Bağlantı Durumu: </string>
+    <string name="reconnect">Yeniden Bağlan</string>
+    <string name="socket_tcp">Socket TCP</string>
+    <string name="settings">Ayarlar</string>
+
+    <!-- Main Navigation -->
+    <string name="nav_panel">Panel</string>
+    <string name="nav_extensions">Uzantılar</string>
+    <string name="nav_discord">Discord</string>
+    <string name="nav_pc_code">PC Kod</string>
+    <string name="nav_profiles">Profiller</string>
+    <string name="discord_avatar">Discord Avatar</string>
+
+    <!-- Panel -->
+    <string name="select_profile">Profil Seçin</string>
+    <string name="edit_mode_active">✏️ Düzenleme Modu Aktif (Tuşlara dokunarak düzenleyin)</string>
+    <string name="new_button">+ Yeni Tuş</string>
+
+    <!-- Extensions -->
+    <string name="ext_platform">Uzantı Platformu</string>
+    <string name="ext_platform_desc">ZIP / Manifest ile dinamik uzantı ekleyin</string>
+    <string name="menu">Menü</string>
+    <string name="install_ext">Uzantı Kur</string>
+    <string name="ext_added">Uzantı tuşu eklendi!</string>
+    <string name="widget_added">widget\'ı ana panele eklendi!</string>
+    <string name="ext_no_perms">Özel bir izin gerektirmiyor.</string>
+    <string name="ok">Tamam</string>
+    <string name="zip_ext_install">ZIP Uzantı Paketi Yükle</string>
+    <string name="zip_ext_desc">APK derlemeden manifest.json içeren uzantıları ekleyin</string>
+    <string name="select_zip">ZIP Seç</string>
+    <string name="no_ext_installed">Henüz yüklü bir uzantı yok</string>
+    <string name="no_ext_desc">Yukarıdaki \'ZIP Seç\' butonu ile yeni bir uzantı paketi ekleyebilirsiniz.</string>
+    <string name="delete">Sil</string>
+    <string name="create_button">Buton Oluştur</string>
+    <string name="create_widget">Widget Oluştur</string>
+    <string name="interface_txt">Arayüz</string>
+    <string name="permissions">İzinler</string>
+
+    <!-- Discord Profil -->
+    <string name="discord_community">Discord Community</string>
+    <string name="discord_channel">ANKA Discord Eklenti Kanalı</string>
+    <string name="discord_desc">Tüm topluluk eklentileri, resmi güncellemeler ve güvenlik onaylı uzantı paketleri Discord sunucumuzda paylaşılmaktadır.</string>
+    <string name="open_discord">Discord Eklenti Kanalını Aç</string>
+    <string name="popular_channels">Popüler Discord Kanalları:</string>
+    <string name="join">Katıl</string>
+</resources>
