@@ -83,7 +83,7 @@ private fun MacroMasonryGrid(
     onExtensionNotification: (String) -> Unit,
     onExtensionGetProfiles: () -> String,
     onEditMacro: (MacroButtonEntity) -> Unit,
-    onDeleteMacro: (Long) -> Unit
+    onDeleteMacro: (Int) -> Unit
 ) {
     val scrollState = rememberScrollState()
 
