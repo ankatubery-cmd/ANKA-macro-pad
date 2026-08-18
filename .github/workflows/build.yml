@@ -20,11 +20,29 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Grant execute permission
-        run: chmod +x gradlew
+      # gradlew / gradle wrapper repoda yok, bu yüzden Gradle'ı
+      # doğrudan bu action üzerinden kuruyoruz (wrapper'a gerek kalmıyor).
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.1.0'   # AGP 9.1.1 minimum bunu istiyor
+
+      # app/build.gradle.kts debug build için ${rootDir}/debug.keystore
+      # dosyasını bekliyor ama repoda yok. Android'in standart debug
+      # keystore değerleriyle (android / androiddebugkey / android)
+      # burada anında üretiyoruz.
+      - name: Generate debug keystore
+        run: |
+          keytool -genkeypair -v \
+            -keystore debug.keystore \
+            -storepass android \
+            -alias androiddebugkey \
+            -keypass android \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -dname "CN=Android Debug,O=Android,C=US"
 
       - name: Build APK
-        run: ./gradlew assembleDebug
+        run: gradle assembleDebug --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
