@@ -175,6 +175,47 @@ fun MacroTile(
                 )
             }
         }
+
+        // Edit Mode overlay buttons (Düzenleme ve Silme Butonları)
+        if (isEditMode) {
+            Row(
+                modifier = Modifier
+                    .align(Alignment.TopEnd)
+                    .padding(2.dp)
+            ) {
+                IconButton(
+                    onClick = onEdit,
+                    modifier = Modifier
+                        .size(26.dp)
+                        .clip(CircleShape)
+                        .background(PhoenixAmber)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Edit,
+                        contentDescription = "Düzenle",
+                        tint = Color.Black,
+                        modifier = Modifier.size(14.dp)
+                    )
+                }
+
+                Spacer(modifier = Modifier.size(4.dp))
+
+                IconButton(
+                    onClick = onDelete,
+                    modifier = Modifier
+                        .size(26.dp)
+                        .clip(CircleShape)
+                        .background(PhoenixFlameRed)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Delete,
+                        contentDescription = "Sil",
+                        tint = Color.White,
+                        modifier = Modifier.size(14.dp)
+                    )
+                }
+            }
+        }
     }
 }
 

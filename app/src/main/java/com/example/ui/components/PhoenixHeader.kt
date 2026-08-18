@@ -26,6 +26,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Code
 import androidx.compose.material.icons.filled.Computer
 import androidx.compose.material.icons.filled.Edit
@@ -76,7 +77,7 @@ import com.example.data.AccountStatus
 import com.example.data.DiscordAccount
 
 // Discord davet bağlantısı: Buradaki linki kendi Discord sunucu davet linkiniz ile değiştirebilirsiniz.
-const val DISCORD_INVITE_URL = "davet linki"
+const val DISCORD_INVITE_URL = "https://discord.gg/6Hbb5FxsDV"
 
 @Composable
 fun PhoenixHeader(
@@ -180,45 +181,83 @@ fun PhoenixHeader(
                     }
                 }
 
-                // Discord Butonu (Sağ Üst - Discord sekmesi açıkken görünür ve davet linkine yönlendirir)
-                if (showDiscordIcon) {
+                // Sağ Üst Butonlar (Discord Davet ve Kalem/Düzenleme Butonu)
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    if (showDiscordIcon) {
+                        Box(
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(12.dp))
+                                .background(discordBlurple.copy(alpha = 0.2f))
+                                .border(1.2.dp, discordBlurple, RoundedCornerShape(12.dp))
+                                .clickable {
+                                    try {
+                                        val uri = if (DISCORD_INVITE_URL.startsWith("http://") || DISCORD_INVITE_URL.startsWith("https://")) {
+                                            android.net.Uri.parse(DISCORD_INVITE_URL)
+                                        } else {
+                                            android.net.Uri.parse("https://$DISCORD_INVITE_URL")
+                                        }
+                                        val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, uri)
+                                        context.startActivity(intent)
+                                    } catch (e: Exception) {
+                                        android.widget.Toast.makeText(
+                                            context,
+                                            "Discord bağlantısı açılamadı: $DISCORD_INVITE_URL",
+                                            android.widget.Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                }
+                                .padding(horizontal = 12.dp, vertical = 8.dp),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Icon(
+                                    painter = painterResource(id = R.drawable.ic_discord),
+                                    contentDescription = "Discord Davet",
+                                    tint = discordBlurple,
+                                    modifier = Modifier.size(20.dp)
+                                )
+                                Spacer(modifier = Modifier.width(6.dp))
+                                Text(
+                                    text = "Discord",
+                                    color = Color.White,
+                                    fontSize = 13.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            }
+                        }
+                    }
+
+                    // Kalem / Düzenleme Butonu (Sağ Üst)
                     Box(
                         modifier = Modifier
                             .clip(RoundedCornerShape(12.dp))
-                            .background(discordBlurple.copy(alpha = 0.2f))
-                            .border(1.2.dp, discordBlurple, RoundedCornerShape(12.dp))
-                            .clickable {
-                                try {
-                                    val uri = if (DISCORD_INVITE_URL.startsWith("http://") || DISCORD_INVITE_URL.startsWith("https://")) {
-                                        android.net.Uri.parse(DISCORD_INVITE_URL)
-                                    } else {
-                                        android.net.Uri.parse("https://$DISCORD_INVITE_URL")
-                                    }
-                                    val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, uri)
-                                    context.startActivity(intent)
-                                } catch (e: Exception) {
-                                    android.widget.Toast.makeText(
-                                        context,
-                                        "Discord bağlantısı açılamadı: $DISCORD_INVITE_URL",
-                                        android.widget.Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-                            }
-                            .padding(horizontal = 12.dp, vertical = 8.dp),
+                            .background(
+                                if (isEditMode) PhoenixGold.copy(alpha = 0.25f) else SurfaceDark
+                            )
+                            .border(
+                                1.2.dp,
+                                if (isEditMode) PhoenixGold else PhoenixAmber.copy(alpha = 0.6f),
+                                RoundedCornerShape(12.dp)
+                            )
+                            .clickable { onToggleEditMode() }
+                            .padding(horizontal = 10.dp, vertical = 8.dp),
                         contentAlignment = Alignment.Center
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Icon(
-                                painter = painterResource(id = R.drawable.ic_discord),
-                                contentDescription = "Discord Davet",
-                                tint = discordBlurple,
-                                modifier = Modifier.size(20.dp)
+                                imageVector = if (isEditMode) Icons.Default.Check else Icons.Default.Edit,
+                                contentDescription = if (isEditMode) "Düzenlemeyi Bitir" else "Makroları Düzenle",
+                                tint = if (isEditMode) PhoenixGold else PhoenixAmber,
+                                modifier = Modifier.size(18.dp)
                             )
-                            Spacer(modifier = Modifier.width(6.dp))
+                            Spacer(modifier = Modifier.width(4.dp))
                             Text(
-                                text = "Discord",
-                                color = Color.White,
-                                fontSize = 13.sp,
+                                text = if (isEditMode) "Bitti" else "Düzenle",
+                                color = if (isEditMode) PhoenixGold else Color.White,
+                                fontSize = 12.sp,
                                 fontWeight = FontWeight.Bold
                             )
                         }
