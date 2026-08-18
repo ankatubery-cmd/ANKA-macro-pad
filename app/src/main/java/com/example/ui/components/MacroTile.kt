@@ -56,10 +56,10 @@ import com.example.ui.theme.PhoenixGold
 @Composable
 fun MacroTile(
     button: MacroButtonEntity,
-    isEditMode: Boolean,
+    isEditMode: Boolean = false,
     onClick: () -> Unit,
-    onEdit: () -> Unit,
-    onDelete: () -> Unit,
+    onEdit: () -> Unit = {},
+    onDelete: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     var isPressed by remember { mutableStateOf(false) }
@@ -116,21 +116,15 @@ fun MacroTile(
                 ),
                 shape = RoundedCornerShape(20.dp)
             )
-            .pointerInput(isEditMode) {
+            .pointerInput(Unit) {
                 detectTapGestures(
                     onPress = {
-                        if (!isEditMode) {
-                            isPressed = true
-                            tryAwaitRelease()
-                            isPressed = false
-                        }
+                        isPressed = true
+                        tryAwaitRelease()
+                        isPressed = false
                     },
                     onTap = {
-                        if (isEditMode) {
-                            onEdit()
-                        } else {
-                            onClick()
-                        }
+                        onClick()
                     },
                     onLongPress = {
                         onEdit()
@@ -179,47 +173,6 @@ fun MacroTile(
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
-            }
-        }
-
-        // Edit Mode overlay buttons
-        if (isEditMode) {
-            Row(
-                modifier = Modifier
-                    .align(Alignment.TopEnd)
-                    .padding(2.dp)
-            ) {
-                IconButton(
-                    onClick = onEdit,
-                    modifier = Modifier
-                        .size(26.dp)
-                        .clip(CircleShape)
-                        .background(PhoenixAmber)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Edit,
-                        contentDescription = "Düzenle",
-                        tint = Color.Black,
-                        modifier = Modifier.size(14.dp)
-                    )
-                }
-
-                Spacer(modifier = Modifier.size(4.dp))
-
-                IconButton(
-                    onClick = onDelete,
-                    modifier = Modifier
-                        .size(26.dp)
-                        .clip(CircleShape)
-                        .background(PhoenixFlameRed)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Delete,
-                        contentDescription = "Sil",
-                        tint = Color.White,
-                        modifier = Modifier.size(14.dp)
-                    )
-                }
             }
         }
     }

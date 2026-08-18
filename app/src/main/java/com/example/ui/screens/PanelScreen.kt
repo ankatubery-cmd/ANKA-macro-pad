@@ -312,27 +312,6 @@ fun PanelScreen(
             }
         }
 
-        // Edit Mode Indicator Bar
-        if (isEditMode) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 4.dp)
-                    .clip(RoundedCornerShape(10.dp))
-                    .background(PhoenixCardBorder.copy(alpha = 0.2f))
-                    .border(1.dp, PhoenixGold, RoundedCornerShape(10.dp))
-                    .padding(vertical = 6.dp, horizontal = 12.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = stringResource(R.string.edit_mode_active),
-                    color = PhoenixGold,
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            }
-        }
-
         // Macro Buttons & Widgets: masonry-style layout.
         // Each single tile uses the shortest column, so short buttons never leave
         // a large vertical hole beside a taller multi-column widget.

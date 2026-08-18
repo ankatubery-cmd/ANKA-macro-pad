@@ -90,15 +90,10 @@ fun MacroWidgetTile(
         Color(AndroidColor.parseColor(button.borderColorHex))
     }.getOrDefault(PhoenixGold)
 
-    val editGestureModifier = if (isEditMode) {
-        Modifier.pointerInput(Unit) {
-            detectTapGestures(
-                onTap = { onEdit() },
-                onLongPress = { onEdit() }
-            )
-        }
-    } else {
-        Modifier
+    val editGestureModifier = Modifier.pointerInput(Unit) {
+        detectTapGestures(
+            onLongPress = { onEdit() }
+        )
     }
 
     Box(
@@ -234,44 +229,6 @@ fun MacroWidgetTile(
                         text = "Uzantı widget'ı",
                         color = Color.White.copy(alpha = 0.55f),
                         fontSize = 10.sp
-                    )
-                }
-            }
-        }
-
-        if (isEditMode) {
-            Row(
-                modifier = Modifier
-                    .align(Alignment.TopEnd)
-                    .padding(2.dp)
-            ) {
-                IconButton(
-                    onClick = onEdit,
-                    modifier = Modifier
-                        .size(24.dp)
-                        .clip(CircleShape)
-                        .background(PhoenixAmber)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Edit,
-                        contentDescription = "Düzenle",
-                        tint = Color.Black,
-                        modifier = Modifier.size(13.dp)
-                    )
-                }
-                Spacer(modifier = Modifier.width(4.dp))
-                IconButton(
-                    onClick = onDelete,
-                    modifier = Modifier
-                        .size(24.dp)
-                        .clip(CircleShape)
-                        .background(PhoenixFlameRed)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Delete,
-                        contentDescription = "Sil",
-                        tint = Color.White,
-                        modifier = Modifier.size(13.dp)
                     )
                 }
             }

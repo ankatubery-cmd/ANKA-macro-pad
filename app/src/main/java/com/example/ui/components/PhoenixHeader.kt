@@ -50,6 +50,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -74,6 +75,9 @@ import androidx.compose.material.icons.filled.Fullscreen
 import com.example.data.AccountStatus
 import com.example.data.DiscordAccount
 
+// Discord davet bağlantısı: Buradaki linki kendi Discord sunucu davet linkiniz ile değiştirebilirsiniz.
+const val DISCORD_INVITE_URL = "davet linki"
+
 @Composable
 fun PhoenixHeader(
     connectionStatus: ConnectionStatus,
@@ -92,6 +96,7 @@ fun PhoenixHeader(
     onToggleFocusMode: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
+    val context = LocalContext.current
     val statusColor by animateColorAsState(
         targetValue = connectionStatus.color,
         animationSpec = tween(durationMillis = 300),
@@ -110,36 +115,6 @@ fun PhoenixHeader(
     )
 
     val discordBlurple = Color(0xFF5865F2)
-    var showSupportDialog by remember { mutableStateOf(false) }
-
-    if (showSupportDialog) {
-        AlertDialog(
-            onDismissRequest = { showSupportDialog = false },
-            title = {
-                Text(
-                    text = stringResource(R.string.support_server_title),
-                    color = PhoenixGold,
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            },
-            text = {
-                Text(
-                    text = stringResource(R.string.support_server_desc),
-                    color = Color.White,
-                    fontSize = 14.sp
-                )
-            },
-            confirmButton = {
-                TextButton(onClick = { showSupportDialog = false }) {
-                    Text(stringResource(R.string.close), color = PhoenixGold)
-                }
-            },
-            containerColor = SurfaceDark,
-            titleContentColor = PhoenixGold,
-            textContentColor = Color.White
-        )
-    }
 
     Surface(
         modifier = modifier.fillMaxWidth(),
@@ -155,22 +130,10 @@ fun PhoenixHeader(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // ANKA Logo & Title
+                // ANKA Logo & Title (Sol Üst)
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    if (showDiscordIcon) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_discord),
-                            contentDescription = "Discord",
-                            tint = discordBlurple,
-                            modifier = Modifier
-                                .size(28.dp)
-                                .clickable { showSupportDialog = true }
-                        )
-                        Spacer(modifier = Modifier.width(16.dp))
-                    }
-
                     Box(
                         modifier = Modifier
                             .size(46.dp)
@@ -214,6 +177,51 @@ fun PhoenixHeader(
                             fontWeight = FontWeight.Bold,
                             letterSpacing = 2.5.sp
                         )
+                    }
+                }
+
+                // Discord Butonu (Sağ Üst - Discord sekmesi açıkken görünür ve davet linkine yönlendirir)
+                if (showDiscordIcon) {
+                    Box(
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(12.dp))
+                            .background(discordBlurple.copy(alpha = 0.2f))
+                            .border(1.2.dp, discordBlurple, RoundedCornerShape(12.dp))
+                            .clickable {
+                                try {
+                                    val uri = if (DISCORD_INVITE_URL.startsWith("http://") || DISCORD_INVITE_URL.startsWith("https://")) {
+                                        android.net.Uri.parse(DISCORD_INVITE_URL)
+                                    } else {
+                                        android.net.Uri.parse("https://$DISCORD_INVITE_URL")
+                                    }
+                                    val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, uri)
+                                    context.startActivity(intent)
+                                } catch (e: Exception) {
+                                    android.widget.Toast.makeText(
+                                        context,
+                                        "Discord bağlantısı açılamadı: $DISCORD_INVITE_URL",
+                                        android.widget.Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+                            .padding(horizontal = 12.dp, vertical = 8.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_discord),
+                                contentDescription = "Discord Davet",
+                                tint = discordBlurple,
+                                modifier = Modifier.size(20.dp)
+                            )
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text(
+                                text = "Discord",
+                                color = Color.White,
+                                fontSize = 13.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
                     }
                 }
             }
