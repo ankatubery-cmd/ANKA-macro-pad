@@ -131,6 +131,7 @@ fun MainScreen(
                     port = settings.port,
                     isEditMode = isEditMode,
                     showDiscordIcon = (currentScreen == NavScreen.DISCORD),
+                    showEditButton = (currentScreen == NavScreen.PANEL),
                     onToggleEditMode = { viewModel.toggleEditMode() },
                     onOpenSettings = { showSettingsDialog = true },
                     onOpenServerCode = { showServerCodeDialog = true },

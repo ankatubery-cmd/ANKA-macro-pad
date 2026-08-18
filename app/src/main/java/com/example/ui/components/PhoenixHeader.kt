@@ -88,6 +88,7 @@ fun PhoenixHeader(
     port: Int = 8080,
     isEditMode: Boolean = false,
     showDiscordIcon: Boolean = false,
+    showEditButton: Boolean = true,
     onToggleEditMode: () -> Unit = {},
     onOpenSettings: () -> Unit = {},
     onOpenServerCode: () -> Unit,
@@ -230,36 +231,38 @@ fun PhoenixHeader(
                         }
                     }
 
-                    // Kalem / Düzenleme Butonu (Sağ Üst)
-                    Box(
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(12.dp))
-                            .background(
-                                if (isEditMode) PhoenixGold.copy(alpha = 0.25f) else SurfaceDark
-                            )
-                            .border(
-                                1.2.dp,
-                                if (isEditMode) PhoenixGold else PhoenixAmber.copy(alpha = 0.6f),
-                                RoundedCornerShape(12.dp)
-                            )
-                            .clickable { onToggleEditMode() }
-                            .padding(horizontal = 10.dp, vertical = 8.dp),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(
-                                imageVector = if (isEditMode) Icons.Default.Check else Icons.Default.Edit,
-                                contentDescription = if (isEditMode) "Düzenlemeyi Bitir" else "Makroları Düzenle",
-                                tint = if (isEditMode) PhoenixGold else PhoenixAmber,
-                                modifier = Modifier.size(18.dp)
-                            )
-                            Spacer(modifier = Modifier.width(4.dp))
-                            Text(
-                                text = if (isEditMode) "Bitti" else "Düzenle",
-                                color = if (isEditMode) PhoenixGold else Color.White,
-                                fontSize = 12.sp,
-                                fontWeight = FontWeight.Bold
-                            )
+                    // Kalem / Düzenleme Butonu (Sağ Üst - Sadece ana panelde görünür)
+                    if (showEditButton) {
+                        Box(
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(12.dp))
+                                .background(
+                                    if (isEditMode) PhoenixGold.copy(alpha = 0.25f) else SurfaceDark
+                                )
+                                .border(
+                                    1.2.dp,
+                                    if (isEditMode) PhoenixGold else PhoenixAmber.copy(alpha = 0.6f),
+                                    RoundedCornerShape(12.dp)
+                                )
+                                .clickable { onToggleEditMode() }
+                                .padding(horizontal = 10.dp, vertical = 8.dp),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Icon(
+                                    imageVector = if (isEditMode) Icons.Default.Check else Icons.Default.Edit,
+                                    contentDescription = if (isEditMode) "Düzenlemeyi Bitir" else "Makroları Düzenle",
+                                    tint = if (isEditMode) PhoenixGold else PhoenixAmber,
+                                    modifier = Modifier.size(18.dp)
+                                )
+                                Spacer(modifier = Modifier.width(4.dp))
+                                Text(
+                                    text = if (isEditMode) "Bitti" else "Düzenle",
+                                    color = if (isEditMode) PhoenixGold else Color.White,
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            }
                         }
                     }
                 }
