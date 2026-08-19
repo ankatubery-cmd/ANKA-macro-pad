@@ -45,3 +45,19 @@ Widget sistemi ilerleyen sürümlerde daha fazla özellik destekleyecek şekilde
 ## Kullanım
 
 Uygulamayı açtıktan sonra ana ekrandan mevcut özelliklere erişebilirsiniz.
+
+## Katkıda Bulunma
+
+ANKAtuber'ın geliştirilmesine katkıda bulunmak isteyen geliştiriciler GitHub üzerinden projeyi inceleyebilir, hata bildirebilir ve geliştirme önerileri sunabilir.
+
+Kod değişiklikleri göndermeden önce mevcut proje yapısına ve kodlama düzenine uyulması önerilir.
+
+## İletişim
+
+ANKAtuber ile ilgili güncellemeler ve içerikler için resmi sosyal medya kanallarını takip edebilirsiniz.
+
+## İletişim
+
+[![YouTube](https://img.shields.io/badge/YouTube-ANKAtuber-red?style=for-the-badge&logo=youtube&logoColor=white)](YOUTUBE_LINK)
+[![Discord](https://img.shields.io/badge/Discord-Topluluk-5865F2?style=for-the-badge&logo=discord&logoColor=white)](DISCORD_LINK)
+[![GitHub](https://img.shields.io/badge/GitHub-ANKAtuber-black?style=for-the-badge&logo=github&logoColor=white)](GITHUB_LINK)
