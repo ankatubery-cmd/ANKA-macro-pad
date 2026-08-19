@@ -60,15 +60,15 @@ ANKAtuber ile ilgili güncellemeler ve içerikler için resmi sosyal medya kanal
 
 <a href="YOUTUBE_LINK">
   <img src="https://cdn.simpleicons.org/youtube" width="24" height="24" alt="YouTube">
-  YouTube
+  ANKAtuber
 </a>
 &nbsp;&nbsp;
 <a href="DISCORD_LINK">
   <img src="https://cdn.simpleicons.org/discord" width="24" height="24" alt="Discord">
-  Discord
+  ANKAtuberYT
 </a>
 &nbsp;&nbsp;
 <a href="GITHUB_LINK">
   <img src="https://cdn.simpleicons.org/github" width="24" height="24" alt="GitHub">
-  GitHub
+  ANKAtuber
 </a>
