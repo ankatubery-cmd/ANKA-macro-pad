@@ -180,7 +180,7 @@ private fun MacroMasonryGrid(
 
             placements += Triple(bestColumn, bestY.toInt(), placeable)
 
-            val newBottom = bestY + placeable.height
+            val newBottom = bestY + placeable.height + gap 
             for (column in bestColumn until (bestColumn + span).coerceAtMost(3)) {
                 columnBottoms[column] = newBottom
             }

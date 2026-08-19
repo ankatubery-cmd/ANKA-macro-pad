@@ -162,7 +162,7 @@ fun CreateExtensionWidgetDialog(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(6.dp)
                 ) {
-                    listOf(1 to "1 Sütun", 2 to "2 Sütun", 3 to "3 Sütun").forEach { (span, label) ->
+                    listOf(1 to "1x1 (1 Sütun)", 2 to "2x2 (2 Sütun)", 3 to "3x3 (3 Sütun)").forEach { (span, label) ->
                         val selected = selectedSpan == span
                         Box(
                             modifier = Modifier

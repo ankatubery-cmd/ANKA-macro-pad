@@ -96,27 +96,17 @@ fun MacroWidgetTile(
         )
     }
 
+    val widgetHeight = when (button.sizeSpan.coerceIn(1, 3)) {
+        1 -> 115.dp
+        2 -> 240.dp
+        3 -> 365.dp
+        else -> 115.dp
+    }
+
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .then(
-                if (isHtmlWidget) {
-                    // HTML widgets get enough vertical space for their complete UI.
-                    // The WebView itself is non-scrollable, so the extension content must fit.
-                    Modifier.height(
-                        // Keep HTML widgets proportional to the normal macro tile.
-                        // A widget is intentionally 2x the standard tile height, while
-                        // sizeSpan controls its width (1/2/3 columns).
-                        when (button.sizeSpan.coerceIn(1, 3)) {
-                            1 -> 250.dp
-                            2 -> 250.dp
-                            else -> 250.dp
-                        }
-                    )
-                } else {
-                    Modifier.height(if (button.sizeSpan == 1) 125.dp else 115.dp)
-                }
-            )
+            .height(widgetHeight)
             .clip(RoundedCornerShape(20.dp))
             .background(
                 Brush.verticalGradient(
