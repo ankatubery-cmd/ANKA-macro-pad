@@ -58,12 +58,12 @@ ANKAtuber ile ilgili güncellemeler ve içerikler için resmi sosyal medya kanal
 
 ## İletişim
 
-<a href="YOUTUBE_LINK">
+<a href="www.youtube.com/@ANKAtuber">
   <img src="https://cdn.simpleicons.org/youtube" width="24" height="24" alt="YouTube">
   ANKAtuber
 </a>
 &nbsp;&nbsp;
-<a href="DISCORD_LINK">
+<a href="discord.com/invite/TCvnKR7xxk">
   <img src="https://cdn.simpleicons.org/discord" width="24" height="24" alt="Discord">
   ANKAtuberYT
 </a>
