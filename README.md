@@ -58,6 +58,17 @@ ANKAtuber ile ilgili güncellemeler ve içerikler için resmi sosyal medya kanal
 
 ## İletişim
 
-[![YouTube](https://img.shields.io/badge/YouTube-ANKAtuber-red?style=for-the-badge&logo=youtube&logoColor=white)](YOUTUBE_LINK)
-[![Discord](https://img.shields.io/badge/Discord-Topluluk-5865F2?style=for-the-badge&logo=discord&logoColor=white)](DISCORD_LINK)
-[![GitHub](https://img.shields.io/badge/GitHub-ANKAtuber-black?style=for-the-badge&logo=github&logoColor=white)](GITHUB_LINK)
+<a href="YOUTUBE_LINK">
+  <img src="https://cdn.simpleicons.org/youtube" width="24" height="24" alt="YouTube">
+  YouTube
+</a>
+&nbsp;&nbsp;
+<a href="DISCORD_LINK">
+  <img src="https://cdn.simpleicons.org/discord" width="24" height="24" alt="Discord">
+  Discord
+</a>
+&nbsp;&nbsp;
+<a href="GITHUB_LINK">
+  <img src="https://cdn.simpleicons.org/github" width="24" height="24" alt="GitHub">
+  GitHub
+</a>
