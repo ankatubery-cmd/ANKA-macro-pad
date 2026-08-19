@@ -63,7 +63,7 @@ ANKAtuber ile ilgili güncellemeler ve içerikler için resmi sosyal medya kanal
   ANKAtuber
 </a>
 &nbsp;&nbsp;
-<a href="https://discord.com/invite/TCvnKR7xxk">
+<a href="https://discord.gg/tXwfaPHg7w">
   <img src="https://cdn.simpleicons.org/discord" width="24" height="24" alt="Discord">
   ANKAtuberYT
 </a>
